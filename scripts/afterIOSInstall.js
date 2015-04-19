@@ -19,7 +19,7 @@ module.exports = function(context) {
 
   var plugins = project.pbxGroupByName('Plugins');
   var id = context.opts.plugin.pluginInfo.id;
-  var srcFile = '/Users/Master/Desktop/Soundpeek/cordova-build-override/platforms/ios/Soundpeek/Frameworks/MobileVLCKit.framework';
+  var srcFile = '/Users/Master/Development/ios/MobileVLCKit.framework';
   var frameworkFolder = srcFile.substring(srcFile.lastIndexOf('/')+1);
   var pluginsPath;
   if ( /"/.test( plugins.path ) ){
