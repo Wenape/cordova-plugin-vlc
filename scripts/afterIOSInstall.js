@@ -19,8 +19,7 @@ module.exports = function(context) {
 
   var plugins = project.pbxGroupByName('Plugins');
   var id = context.opts.plugin.pluginInfo.id;
-  if (process.env.VLC_FRAMEWORK_LOCATION===undefined) { throw new Error('environment variable VLC_FRAMEWORK_LOCATION not found'); }
-  var srcFile = process.env.VLC_FRAMEWORK_LOCATION;
+  var srcFile = '/Users/Master/Desktop/Soundpeek/.meteor/local/cordova-build/platforms/ios/Soundpeek/Frameworks/MobileVLCKit.framework';
   var frameworkFolder = srcFile.substring(srcFile.lastIndexOf('/')+1);
   var pluginsPath;
   if ( /"/.test( plugins.path ) ){
@@ -41,4 +40,4 @@ module.exports = function(context) {
   fs.writeFileSync(projectFile, project.writeSync());
   
   console.log('Finished Installing VLC Framework To iOS Project');
-}
+};
