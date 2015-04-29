@@ -21,6 +21,10 @@ AudioPlayer.prototype.playfile = function(success, error, url, info, position, e
   exec(success, error, "AudioPlayerPlugin", "playfile", [url, info, position, extra]);
 };
 
+AudioPlayer.prototype.resume = function(success, error) {
+  exec(success, error, "AudioPlayerPlugin", "resume", []);
+};
+
 AudioPlayer.prototype.pause = function(success, error) {
   exec(success, error, "AudioPlayerPlugin", "pause", []);
 };

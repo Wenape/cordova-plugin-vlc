@@ -15,6 +15,7 @@ extern NSString * const VLCPluginRemoteControlEventNotification;
 - (void)playstream:(CDVInvokedUrlCommand*)command;
 - (void)playremotefile:(CDVInvokedUrlCommand*)command;
 - (void)playfile:(CDVInvokedUrlCommand*)command;
+- (void)resume:(CDVInvokedUrlCommand*)command;
 - (void)pause:(CDVInvokedUrlCommand*)command;
 - (void)stop:(CDVInvokedUrlCommand*)command;
 - (void)seek:(CDVInvokedUrlCommand*)command;

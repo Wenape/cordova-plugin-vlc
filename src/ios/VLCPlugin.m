@@ -328,6 +328,16 @@ typedef NSUInteger NYPRExtraMediaStates;
     [self vlc_sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)resume:(CDVInvokedUrlCommand*)command {
+    DDLogInfo (@"VLC Plugin resuming playback");
+    if (!self.mediaPlayer.isPlaying) {
+        [self.mediaPlayer play];
+    }
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self vlc_sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void)pause:(CDVInvokedUrlCommand*)command {
     DDLogInfo (@"VLC Plugin pausing playback");
     if (self.mediaPlayer.isPlaying) {
