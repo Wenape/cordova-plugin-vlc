@@ -177,7 +177,8 @@ typedef NSUInteger NYPRExtraMediaStates;
     }
     
     if (self.callbackId!=nil){
-        [result setKeepCallbackAsBool:YES]; // keep for later callbacks
+        // Bug fix: http://stackoverflow.com/questions/12100070/phonegap-cordova-callback-bug-restkit-completion-functions-not-executing-in 
+        // [result setKeepCallbackAsBool:YES]; // keep for later callbacks
         [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
     }
 }
