@@ -5,6 +5,10 @@ var exec = require("cordova/exec");
  */    
 var AudioPlayer = function(){};
 
+AudioPlayer.prototype.restart = function(success, error) {
+  exec(success, error, "AudioPlayerPlugin", "restart",[]);
+};
+
 AudioPlayer.prototype.configure = function(success, error) {
   exec(success, error, "AudioPlayerPlugin", "init",[]);
 };

@@ -138,6 +138,15 @@ typedef NSUInteger NYPRExtraMediaStates;
 
 #pragma mark Cleanup
 
+- (void)restart:(CDVInvokedUrlCommand*)command {
+    DDLogInfo (@"VLC Plugin restarting");
+    [self vlc_teardown];
+    [self vlc_create];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self vlc_sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 -(void) vlc_teardown {
     if (self.mediaPlayer) {
 
@@ -177,8 +186,7 @@ typedef NSUInteger NYPRExtraMediaStates;
     }
     
     if (self.callbackId!=nil){
-        // Bug fix: http://stackoverflow.com/questions/12100070/phonegap-cordova-callback-bug-restkit-completion-functions-not-executing-in 
-        // [result setKeepCallbackAsBool:YES]; // keep for later callbacks
+        [result setKeepCallbackAsBool:YES]; // keep for later callbacks
         [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
     }
 }
