@@ -140,11 +140,8 @@ typedef NSUInteger NYPRExtraMediaStates;
 
 - (void)restart:(CDVInvokedUrlCommand*)command {
     DDLogInfo (@"VLC Plugin restarting");
-    [self vlc_teardown];
-    [self vlc_create];
-    
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self vlc_sendPluginResult:pluginResult callbackId:command.callbackId];
+    [self dispose];
+    [self pluginInitialize];
 }
 
 -(void) vlc_teardown {
